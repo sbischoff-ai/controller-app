@@ -1,0 +1,50 @@
+#:kivy 1.10.1
+
+<AnalogStick>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<DPad>:
+    size: 80, 80
+    canvas:
+        Rectangle:
+            pos: self.center_x - 40, self.center_y - 10
+            size: 30, 20
+        Rectangle:
+            pos: self.center_x + 10, self.center_y - 10
+            size: 30, 20
+        Rectangle:
+            pos: self.center_x - 10, self.center_y + 10
+            size: 20, 30
+        Rectangle:
+            pos: self.center_x - 10, self.center_y - 40
+            size: 20, 30
+
+<GameController>:
+    left_stick: left_stick
+    right_stick: right_stick
+    d_pad: d_pad
+
+    Label:
+        font_size: 30
+        center_x: root.width / 3
+        top: root.top - 50
+        text: "Game Controller"
+
+    AnalogStick:
+        id: left_stick
+        center_x: root.width / 4
+        center_y: root.height / 2
+
+    AnalogStick:
+        id: right_stick
+        center_x: root.width * 3 / 4
+        center_y: root.height / 3
+
+    DPad:
+        id: d_pad
+        center_x: root.width / 3
+        center_y: root.height / 4
